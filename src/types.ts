@@ -1,4 +1,7 @@
-export type Gender = 'male|female';
+export enum Gender {
+    MALE='male',
+    FEMALE='female'
+}
 export interface Diagnose{
     code:string,
     name:string,

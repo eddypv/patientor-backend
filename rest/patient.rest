@@ -3,9 +3,9 @@ Content-Type: application/json
 
 {
     "name":"Jhon",
-    "gender":"male",
+    "gender":"female",
     "occupation":"Cop",
-    "dateOfBirth":"25/10/2021",
+    "dateOfBirth":"2021-01-01",
     "ssn":"123123"
 }
 

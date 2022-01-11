@@ -6,9 +6,19 @@ router.get('/', (_req, res) =>{
     res.send(patientService.getPatientsNoSensitive());
 });
 router.post('/', (req, res) =>{
-    const newPatient = toNewPatient(req.body);
-    const patient = patientService.addPatient(newPatient);
-    return res.json(patient);
+    try{
+        const newPatient = toNewPatient(req.body);
+        const patient = patientService.addPatient(newPatient);
+        res.json(patient);
+    }catch(error:unknown){
+        let messageError = 'Something went wrong. ';  
+        if(error instanceof Error){
+            messageError += 'Error:' + error.message;
+
+        }
+        res.status(400).send({"error":messageError});
+    }
+    
 });
 
 export default router;
