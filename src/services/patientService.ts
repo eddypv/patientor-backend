@@ -1,12 +1,9 @@
 import { PatientNoSensitive, Patient, NewPatient } from "../types";
-import patientData from '../data/patients.json';
+import patientData from '../data/patients';
 import {v1 as uuid} from 'uuid';
 
-let patients :Array<Patient> = patientData as Array<Patient>;
-patients = patients.map((element)=>{
-    element.entries =[];
-    return {...element};
-});
+const patients :Array<Patient> = patientData ;
+
 const getPatients =() :Array<Patient> =>{
     return patients;
 };

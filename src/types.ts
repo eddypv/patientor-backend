@@ -32,8 +32,9 @@ interface HospitalEntry extends BaseEntry{
     discharge: Discharge
 }
 interface OccupationalHealthCareEntry extends BaseEntry{
-    type:"OccupationalHealthCare",
-    sickLeave:SickLeave
+    type:"OccupationalHealthcare",
+    sickLeave?:SickLeave,
+    employerName:string
 }
 type Entry = HealthCheckEntry | HospitalEntry | OccupationalHealthCareEntry;
 
