@@ -1,4 +1,4 @@
-import { Entry, HealthCheckEntry, HospitalEntry } from "../types";
+import { Entry, HealthCheckEntry, HospitalEntry, OccupationalHealthCareEntry } from "../types";
 import { parseDate, parseString, parseArray, parseInt } from "./utils";
 import {v1 as uuid} from 'uuid';
 
@@ -33,8 +33,22 @@ export const toNewEntry = (object:any):Entry =>{
                 }
             }; 
             return hospital;
-            
-
+        case "OccupationalHealthcare":
+            const occupational:OccupationalHealthCareEntry ={
+                type:"OccupationalHealthcare",
+                "id":id,
+                "date": parseDate(object.date, "Incorrect or missing date"),
+                "description":parseString(object.description, "Incorrect or missing description"),
+                "specialist": parseString(object.specialist, "Incorrect or missing specialist"),
+                "diagnosisCodes": parseArray(object.diagnosisCodes, "Incorrect or missing diagnosis Codes"),
+                "employerName": parseString(object.employerName, "Incorrect or missing Employer Name"),
+                "sickLeave":{
+                    "startDate":parseDate(object.sickLeave.startDate , "Incorrect or missing startDate sickLeave"),
+                    "endDate":parseDate(object.sickLeave.endDate , "Incorrect or missing endDate sickLeave"),
+                }
+            };
+            return occupational;     
+        
         default: 
             throw new Error("error");
 
