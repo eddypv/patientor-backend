@@ -1,8 +1,9 @@
 import { Router } from "express";
 import patientService from "../services/patientService";
-import { toNewPatient} from "../data/utils";
+// import { toNewPatient} from "../data/utils";
 import { Entry } from "../types";
 import { toNewEntry } from "../validation/EntryValidation";
+import { toNewPatient } from "../validation/PatientValidation";
 const router = Router(); 
 
 router.get('/', (_req, res) =>{
