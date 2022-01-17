@@ -15,11 +15,11 @@ interface BaseEntry{
     specialist:string,
     diagnosisCodes?:Array<Diagnose['code']>
 }
-interface Discharge{
+export interface Discharge{
     date:string,
     criteria:string
 }
-interface SickLeave{
+export interface SickLeave{
     startDate:string,
     endDate:string,
 }

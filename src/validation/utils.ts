@@ -22,7 +22,7 @@ export const parseString = (text:unknown, messageError:string) :string =>{
     return text;
 };
 
-export const parseArray = (codes:unknown, messageError:string):Array<string> =>{
+export const parseArrayString = (codes:unknown, messageError:string):Array<string> =>{
     if(!codes || !Array.isArray(codes)){
         throw new Error(messageError);
     }

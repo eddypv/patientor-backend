@@ -21,8 +21,8 @@ Content-Type: application/json
     "specialist": "asdas",
     "diagnosisCodes": ["asdasd"], 
     "discharge":{
-        "date": "2022-12-01", 
-        "criteria":"asdasda"
+        "date": "asdas", 
+        "criteria":"asas"
     }
 
 }
@@ -39,8 +39,8 @@ Content-Type: application/json
     "diagnosisCodes": ["asdasd"], 
     "employerName": "asdas",
     "sickLeave":{
-        "startDate":"2022-12-01",
-        "endDate":"2022-12-01"
+        "startDate":"2022-01-01",
+        "endDate":"2022-asdas-01"
     }
 
 }
