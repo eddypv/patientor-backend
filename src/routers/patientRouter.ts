@@ -1,7 +1,10 @@
 import { Router } from "express";
 import patientService from "../services/patientService";
-import { toNewPatient } from "../data/utils";
+import { toNewPatient} from "../data/utils";
+import { Entry } from "../types";
+import { toNewEntry } from "../validation/EntryValidation";
 const router = Router(); 
+
 router.get('/', (_req, res) =>{
     res.send(patientService.getPatientsNoSensitive());
 });
@@ -27,6 +30,26 @@ router.get('/:id', (req, res)=>{
     }else{
         res.status(400).send({"error":"Not found patient"});
     }
+    
+});
+router.post('/:id/entries', (req, res) =>{
+
+    try{
+        const entry:Entry = toNewEntry(req.body);
+        const newEntry = patientService.addEntryPatient(req.params.id, entry);
+        if(newEntry){
+            res.json(newEntry);
+        }else{
+            res.status(404).send({"error":"not found patient"});
+        }
+    }catch(error:unknown){
+        if(error instanceof Error){
+            res.status(400).send({"error":error.message});
+        }else{
+            res.status(400).send({"error":"Something went wrong."});
+        }
+    }
+    
     
 });
 

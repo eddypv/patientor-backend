@@ -23,7 +23,7 @@ interface SickLeave{
     startDate:string,
     endDate:string,
 }
-interface HealthCheckEntry extends BaseEntry{
+export interface HealthCheckEntry extends BaseEntry{
     type:"HealthCheck",
     healthCheckRating :HealthCheckRating
 }
@@ -36,7 +36,8 @@ interface OccupationalHealthCareEntry extends BaseEntry{
     sickLeave?:SickLeave,
     employerName:string
 }
-type Entry = HealthCheckEntry | HospitalEntry | OccupationalHealthCareEntry;
+export type Entry = HealthCheckEntry | HospitalEntry | OccupationalHealthCareEntry;
+export type NewEntry = Omit<Entry, "id">;
 
 export interface Diagnose{
     code:string,
